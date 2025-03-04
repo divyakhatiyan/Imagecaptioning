@@ -1,16 +1,18 @@
-# This is a sample Python script.
+from transformers import BlipProcessor, BlipForConditionalGeneration
+from PIL import Image
 
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
+# Initialize the processor and model from Hugging Face
+processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
+model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
 
+# Load an image
+image = Image.open("image1.png")
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press Ctrl+F8 to toggle the breakpoint.
+# Prepare the image
+inputs = processor(image, return_tensors="pt")
 
+# Generate captions
+outputs = model.generate(**inputs)
+caption = processor.decode(outputs[0], skip_special_tokens=True)
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+print("Generated Caption:", caption)

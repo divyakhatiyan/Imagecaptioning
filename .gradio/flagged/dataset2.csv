@@ -1,0 +1,2 @@
+inp,output,timestamp
+.gradio\flagged\inp\7f9d448d62ef7bde97c9\image1.png,"{""label"": ""oxygen mask"", ""confidences"": [{""label"": ""oxygen mask"", ""confidence"": 0.060033880174160004}, {""label"": ""water jug"", ""confidence"": 0.04264066740870476}, {""label"": ""toilet seat"", ""confidence"": 0.025254929438233376}]}",2025-03-04 13:09:49.005700
